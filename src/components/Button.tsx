@@ -32,9 +32,9 @@ const Button: React.FC<ButtonProps> = ({
         small
           ? "py-1 px-2 text-sm font-light border-[1px]"
           : "py-2 px-4 text-base font-semibold border-2"
-      }`}
+      } flex flex-row items-center justify-center gap-2`}
     >
-      {Icon && <Icon size={24} className="absolute left-4 top-3" />}
+      {Icon && <Icon size={24} />}
       {label}
     </button>
   );

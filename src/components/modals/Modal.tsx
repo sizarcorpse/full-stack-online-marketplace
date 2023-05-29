@@ -75,18 +75,18 @@ const Modal: React.FC<ModalProps> = ({
             <div className="relative flex flex-col w-full h-full border-0 rounded-lg bg-white outline-none translate focus:outline-none md:h-auto lg:h-auto">
               {/* Header */}
               <div className="relative flex items-start justify-between p-6 border-b-[1px] rounded-t">
+                <h3 className="text-lg font-semibold">{title}</h3>
                 <button
                   title="Model Close"
-                  className="absolute p-1 border-0 left-9 transition hover:opacity-70"
+                  className="p-1 border-0  transition hover:opacity-70"
                 >
                   <IoMdClose size={18} onClick={handleOnClose} />
                 </button>
-                <h3 className="text-lg font-semibold">{title}</h3>
               </div>
               {/* Body */}
               <div className="relative flex-auto p-6">{body}</div>
               {/* Footer */}
-              <div className="flex items-center justify-end p-6 border-t-[1px] rounded-b">
+              <div className="flex flex-col items-center justify-end p-6 border-t-[1px] rounded-b">
                 <div className="flex flex-row items-center gap-4 w-full">
                   {secondaryAction && secondaryActionLabel && (
                     <Button
@@ -102,6 +102,7 @@ const Modal: React.FC<ModalProps> = ({
                     onClick={handleOnSubmit}
                   />
                 </div>
+                {footer && footer}
               </div>
             </div>
           </div>
