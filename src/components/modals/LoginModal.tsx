@@ -50,6 +50,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggleModal = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome Back" subtitle="Login to Account" />
@@ -91,13 +96,12 @@ const LoginModal = () => {
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <p>
-          Already have an account?
+          First time using Dominion?
           <span
-            onClick={registerModal.onClose}
+            onClick={toggleModal}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            {" "}
-            Log in
+            Create an account
           </span>
         </p>
       </div>

@@ -3,7 +3,7 @@
 import { Button, Heading } from "@/components/";
 import { Input } from "@/components/inputs";
 import { Modal } from "@/components/modals";
-import { useRegisterModal } from "@/hooks/";
+import { useLoginModal, useRegisterModal } from "@/hooks/";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useCallback, useState } from "react";
@@ -14,6 +14,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -44,6 +45,11 @@ const RegisterModal = () => {
         setIsLoading(false);
       });
   };
+
+  const toggleModal = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -96,10 +102,9 @@ const RegisterModal = () => {
         <p>
           Already have an account?
           <span
-            onClick={registerModal.onClose}
+            onClick={toggleModal}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            {" "}
             Log in
           </span>
         </p>

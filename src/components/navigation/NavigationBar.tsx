@@ -1,6 +1,6 @@
 "use client";
 import { Container } from "@/components/";
-import { Logo, Search, UserMenu } from "@/components/navigation";
+import { Categories, Logo, Search, UserMenu } from "@/components/navigation";
 import { SafeUser } from "@/types/";
 
 interface NavigationBarProps {
@@ -18,6 +18,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ currentUser }) => {
             <UserMenu currentUser={currentUser} />
           </div>
         </Container>
+        <Categories />
       </div>
     </div>
   );
