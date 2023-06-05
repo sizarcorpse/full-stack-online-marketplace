@@ -18,8 +18,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ currentUser }) => {
             <UserMenu currentUser={currentUser} />
           </div>
         </Container>
-        <Categories />
       </div>
+      <Categories />
     </div>
   );
 };
